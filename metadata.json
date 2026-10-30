@@ -1,0 +1,6 @@
+{
+  "name": "BSS Foundation - School of Management",
+  "description": "Official portal of BSS Foundation (School of Management), Mumbai & Navi Mumbai. Offering industry-aligned PGDBM+MBA, BBA, BCA, and B.Sc Data Science & AI with premier placements and modern campus infrastructure.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
