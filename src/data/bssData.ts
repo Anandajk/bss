@@ -564,25 +564,97 @@ I invite you to step into our vibrant corridors, embrace innovation, and transfo
   }
 ];
 
-export const FAQ_LIST = [
+export interface FAQItem {
+  id: string;
+  category: "All" | "Eligibility & Entrance" | "Interview & Selection" | "Fees & Scholarships" | "Hostels & Campus" | "Affiliation & Placements";
+  q: string;
+  a: string;
+  highlight?: string;
+}
+
+export const FAQ_LIST: FAQItem[] = [
   {
-    q: "Is BSS Foundation recognized and affiliated?",
-    a: "Yes. BSS Foundation (School of Management) is a not-for-profit educational organization registered under the Ministry of Corporate Affairs (MCA), Govt. of India. Our degree pathways are delivered in affiliation with renowned universities including the University of Mumbai, Tilak Maharashtra Vidyapeeth (TMV), and collaborative tie-ups with leading educational bodies."
+    id: "faq-1",
+    category: "Eligibility & Entrance",
+    q: "Which entrance examinations are accepted for PGDBM + MBA and undergraduate programs?",
+    a: "For PGDBM + MBA and MMS admissions, we accept scores from CAT, MAH-MBA-CET, CMAT, MAT, XAT, and ATMA. Candidates who have not appeared for a national entrance examination can take the online BSS Aptitude & Analytical Assessment (free of charge). For undergraduate courses (BBA, BCA, B.Sc Data Science & AI, BACD), admissions are granted based on 10+2 merit scores followed by personal counseling.",
+    highlight: "National exam scores or free online BSS Aptitude Assessment accepted"
   },
   {
-    q: "What is the admission procedure for PGDBM + MBA programs?",
-    a: "The admission process is transparent and merit-based: 1) Fill the online application form with academic details; 2) Appear for the BSS Aptitude Assessment or submit valid national entrance scores (CAT, CMAT, MAT, MAH-CET); 3) Attend the Personal Interview (in-person or video mode); 4) Receive the provisional offer letter upon selection; 5) Complete document verification and fee enrollment."
+    id: "faq-2",
+    category: "Eligibility & Entrance",
+    q: "Can final-year graduation students apply for provisional admission to management programs?",
+    a: "Yes. Students currently in the final year or final semester of their Bachelor's degree (any discipline from a UGC-recognized university) are fully eligible to apply. You can secure provisional admission based on your aggregate marks up to the penultimate semester. Final marksheets and passing certificates must be submitted before the prescribed university verification cutoff date.",
+    highlight: "Final-year students can apply with provisional seat booking"
   },
   {
-    q: "What was the highest and average package in recent placement drives?",
-    a: "In recent recruitment cycles, our students achieved a highest CTC of ₹22 LPA, while the average package across the batch stood at ₹9.11 LPA, with top tier performers averaging ₹11.5 LPA across IT, BFSI, and FMCG sectors."
+    id: "faq-3",
+    category: "Interview & Selection",
+    q: "What is the Personal Interview (PI) round, and can outstation students appear online?",
+    a: "The Personal Interview is a 15–20 minute structured interaction with senior faculty and corporate advisory panelists. It assesses your communication clarity, logical aptitude, leadership orientation, and career goals rather than mere textbook recall. Outstation and interstate students can comfortably attend via secure online video interview (Google Meet / Zoom), while local applicants are welcomed at our CBD Belapur or Kalina campuses.",
+    highlight: "Online video interview available for outstation applicants"
   },
   {
-    q: "Does BSS Foundation offer scholarships or financial aid?",
-    a: "Yes, merit-based scholarships up to 30% on tuition are awarded to students with exceptional academic records (85%+ in graduation/12th), national sports achievers, and economically weaker section (EWS) candidates. Educational loan assistance tie-ups with leading nationalized banks are also provided."
+    id: "faq-4",
+    category: "Interview & Selection",
+    q: "What is the timeline from application submission to receiving an admission decision?",
+    a: "Our Admissions Directorate operates a streamlined rolling assessment system. Once your online application is submitted, you will receive your personal interview slot within 48 to 72 business hours. Following the interview, provisional admission results and scholarship merit determinations are communicated within 3 to 5 working days via email and SMS.",
+    highlight: "Decisions communicated within 3–5 working days post-interview"
   },
   {
-    q: "Where are the campuses located and are hostel facilities available?",
-    a: "We have two strategic campuses in Mumbai: the Navi Mumbai Campus at API House, CBD Belapur (Palm Beach Road) and the Mumbai City Campus at the University of Mumbai Vidyanagari Campus, Kalina, Santacruz. Clean, secure, Wi-Fi-enabled hostel accommodations with mess facilities are coordinated near both campuses for outstation male and female students."
+    id: "faq-5",
+    category: "Fees & Scholarships",
+    q: "What are the payment modes and installment options available for tuition fees?",
+    a: "To ease the financial planning for families, tuition fees can be paid in flexible installment schedules (semester-wise or 3 structured term installments per academic year). Payments are accepted via secure Net Banking, NEFT/RTGS, UPI, demand drafts, and major debit/credit cards. An initial nominal seat reservation fee confirms your enrollment.",
+    highlight: "Structured semester-wise installment plans available"
+  },
+  {
+    id: "faq-6",
+    category: "Fees & Scholarships",
+    q: "What are the criteria for the Merit Scholarships (up to 30% fee concession)?",
+    a: "BSS Foundation grants merit concessions across four key categories: 1) Academic Excellence (up to 30% waiver for students with 85%+ aggregate in graduation/12th, and 20% for 75–84%); 2) National & State Level Sports Achievers; 3) Children of Armed Forces & Defense Personnel; and 4) Economically Weaker Section (EWS) assistance. Scholarships are adjusted directly in the tuition fee schedule.",
+    highlight: "Up to 30% fee concession for academic and sporting achievers"
+  },
+  {
+    id: "faq-7",
+    category: "Fees & Scholarships",
+    q: "Does BSS Foundation assist with student education loans?",
+    a: "Yes. BSS Foundation provides full documentation support for education loans. Upon selection, students receive an official Admission Letter, Fee Schedule Estimate, and Institutional Accreditation kit required by all nationalized and private banks (including SBI, Bank of Baroda, HDFC Credila, Canara Bank, and ICICI Bank). Our admissions helpdesk assists students with required paperwork.",
+    highlight: "Full bank loan sanction documentation support provided"
+  },
+  {
+    id: "faq-8",
+    category: "Affiliation & Placements",
+    q: "What are the institutional affiliations, recognitions, and degree validities?",
+    a: "BSS Foundation (School of Management) is a premier not-for-profit educational institution registered under the Ministry of Corporate Affairs (MCA), Govt. of India. Our degrees and certifications are offered in academic collaboration and affiliation with statutory universities including the University of Mumbai (Garware Institute - GICED, Kalina Campus) and Tilak Maharashtra Vidyapeeth (TMV, Pune, deemed university under UGC Act 1956). All degrees are legally valid for government examinations (UPSC, MPSC, Banking) and higher education globally.",
+    highlight: "UGC-recognized degrees valid for UPSC, Govt. exams & abroad"
+  },
+  {
+    id: "faq-9",
+    category: "Affiliation & Placements",
+    q: "What is the placement assistance policy and past recruitment track record?",
+    a: "BSS Foundation operates a dedicated Corporate Relations & Placement Cell (CRPC) providing 100% placement and internship assistance. Our recent placement cycles recorded a highest package of ₹22 LPA and an average of ₹9.11 LPA across 150+ recruiters including Deloitte, Accenture, TCS, Wipro, ICICI Bank, HDFC Bank, and Airbus. In addition, every student completes mandatory 8-12 weeks of paid corporate internships.",
+    highlight: "100% placement support with ₹22 LPA highest & ₹9.11 LPA average"
+  },
+  {
+    id: "faq-10",
+    category: "Hostels & Campus",
+    q: "Are hostel accommodations and transportation facilities available for outstation students?",
+    a: "Yes. BSS Foundation coordinates safe, hygienic, and fully managed student residences (separate hostels for male and female students) within 10–15 minutes of both the CBD Belapur and Kalina campuses. Hostel amenities include Wi-Fi connectivity, biometric security, air-conditioned/non-AC room options, nutritious dining mess, laundry, and proximity to local suburban train and metro stations.",
+    highlight: "Secure male/female student hostels with dining & high-speed Wi-Fi"
+  },
+  {
+    id: "faq-11",
+    category: "Hostels & Campus",
+    q: "Which campus will I study at: CBD Belapur or Kalina (University of Mumbai)?",
+    a: "Students can choose their preferred campus location at the time of application, subject to seat availability in their specific program specialization. The CBD Belapur campus (API House, Palm Beach Road) serves as the executive corporate management hub, while the Kalina campus operates in collaboration with the University of Mumbai Vidyanagari campus. Both campuses share identical faculty, syllabus standards, and centralized campus placement drives.",
+    highlight: "Choice of Belapur or Kalina campus with shared faculty & placements"
+  },
+  {
+    id: "faq-12",
+    category: "Interview & Selection",
+    q: "What original documents are required at the time of admission confirmation?",
+    a: "Applicants need to submit: 1) Class 10th and 12th Marksheets & Passing Certificates; 2) Bachelor's Degree Marksheets (all semesters for PG applicants); 3) National Entrance Examination Scorecard (if applicable); 4) College Leaving / Transfer Certificate; 5) Migration Certificate (for students from universities outside Maharashtra); 6) Government Photo ID (Aadhaar / Passport); and 7) 5 recent passport-sized color photographs.",
+    highlight: "Academic marksheets, transfer certificate, government photo ID"
   }
 ];
