@@ -361,11 +361,23 @@ export const Footer: React.FC<FooterProps> = ({
             © {new Date().getFullYear()} BSS Foundation (School of Management). All rights reserved.
           </p>
           <div className="flex items-center space-x-4">
+            <button
+              onClick={() => onNavigate('blogs')}
+              className="hover:text-amber-300 transition-colors cursor-pointer"
+            >
+              Academic Gazettes & Blogs
+            </button>
+            <span>•</span>
             <span className="hover:text-slate-400">Privacy Policy</span>
             <span>•</span>
             <span className="hover:text-slate-400">Terms of Admission</span>
             <span>•</span>
-            <span className="hover:text-slate-400">Statutory Compliances</span>
+            <button
+              onClick={() => onNavigate('admin')}
+              className="text-amber-400 hover:text-amber-300 font-semibold transition-colors cursor-pointer flex items-center space-x-1"
+            >
+              <span>Admin Portal (/admin)</span>
+            </button>
           </div>
         </div>
       </div>

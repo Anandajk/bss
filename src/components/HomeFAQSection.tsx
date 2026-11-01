@@ -5,7 +5,8 @@ import {
   Phone, Mail, ArrowRight, GraduationCap, Briefcase,
   DollarSign, FileText, ChevronRight
 } from 'lucide-react';
-import { FAQ_LIST, FAQItem, INSTITUTION_INFO } from '../data/bssData';
+import { FAQItem, INSTITUTION_INFO } from '../data/bssData';
+import { useData } from '../context/DataContext';
 
 interface HomeFAQSectionProps {
   onOpenApply: () => void;
@@ -20,6 +21,7 @@ export const HomeFAQSection: React.FC<HomeFAQSectionProps> = ({
   onOpenEnquiry,
   onNavigateToAdmissions
 }) => {
+  const { faqs } = useData();
   const [selectedTopic, setSelectedTopic] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [expandedIds, setExpandedIds] = useState<string[]>(['faq-1', 'faq-9']);
@@ -31,9 +33,9 @@ export const HomeFAQSection: React.FC<HomeFAQSectionProps> = ({
     { id: 'Placements', label: 'Campus Placements', icon: Briefcase }
   ];
 
-  // Map the raw categories from FAQ_LIST to the 3 key prospective student pillars
+  // Map the raw categories to the 3 key prospective student pillars
   const filteredFaqs = useMemo(() => {
-    return FAQ_LIST.filter((item) => {
+    return faqs.filter((item) => {
       let matchesTopic = true;
       if (selectedTopic === 'Admissions') {
         matchesTopic = item.category === 'Eligibility & Entrance' || item.category === 'Interview & Selection';
@@ -52,7 +54,7 @@ export const HomeFAQSection: React.FC<HomeFAQSectionProps> = ({
 
       return matchesTopic && matchesSearch;
     });
-  }, [selectedTopic, searchQuery]);
+  }, [faqs, selectedTopic, searchQuery]);
 
   const toggleAccordion = (id: string) => {
     setExpandedIds((prev) =>

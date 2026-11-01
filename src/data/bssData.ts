@@ -97,6 +97,35 @@ export interface Department {
   establishedYear: string;
 }
 
+export interface HeroSlideItem {
+  id: number | string;
+  image: string;
+  badge: string;
+  tagline: string;
+  title: string;
+  description: string;
+  primaryCta: string;
+  secondaryCta: string;
+  stats: string;
+}
+
+export interface BlogPost {
+  id: string;
+  title: string;
+  slug: string;
+  category: string;
+  author: string;
+  authorRole: string;
+  authorImage?: string;
+  date: string;
+  readTime: string;
+  image: string;
+  summary: string;
+  content: string;
+  tags: string[];
+  featured?: boolean;
+}
+
 export const INSTITUTION_INFO = {
   name: "BSS Foundation",
   subName: "School of Management",
@@ -1217,3 +1246,113 @@ export const FAQ_LIST: FAQItem[] = [
     highlight: "Academic marksheets, transfer certificate, government photo ID"
   }
 ];
+
+export const INITIAL_HERO_SLIDES: HeroSlideItem[] = [
+  {
+    id: 1,
+    image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1800&q=85",
+    badge: "Flagship Admissions 2027 - 2028",
+    tagline: "Beyond Education • School of Management",
+    title: "Shaping Visionary Corporate Leaders & Global Entrepreneurs",
+    description: "Join India's forward-thinking management institution in Mumbai & Navi Mumbai. Premier industry-aligned PGDBM+MBA, BBA, BCA, and B.Sc Data Science & AI programs.",
+    primaryCta: "Apply Online for 2027",
+    secondaryCta: "Explore Programs",
+    stats: "₹22 LPA Highest CTC • 150+ Recruiters"
+  },
+  {
+    id: 2,
+    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1800&q=85",
+    badge: "Premier Placement Record",
+    tagline: "100% Dedicated Career Support",
+    title: "Direct Placement Pathways with Global Fortune 500 Giants",
+    description: "Recruitment tie-ups with Deloitte, Accenture, TCS, Wipro, ICICI, Airbus, Schneider Electric, and leading multinational conglomerates.",
+    primaryCta: "View Placement Report",
+    secondaryCta: "Download Brochure",
+    stats: "₹9.11 LPA Average Package • 4,000+ Alumni"
+  },
+  {
+    id: 3,
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1800&q=85",
+    badge: "Emerging Tech & AI Leadership",
+    tagline: "Industry 4.0 Ready Curriculum",
+    title: "Master High-Demand Tech: Data Science, AI & Full-Stack Computing",
+    description: "State-of-the-art AI computing labs, Python/TensorFlow deep learning workspaces, and hands-on big data case studies under industry mentors.",
+    primaryCta: "Apply for Tech Degrees",
+    secondaryCta: "Take 360° Virtual Tour",
+    stats: "B.Sc Data Science & AI • BCA Honours"
+  },
+  {
+    id: 4,
+    image: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1800&q=85",
+    badge: "Dual Strategic Campuses",
+    tagline: "CBD Belapur & Mumbai University Kalina",
+    title: "World-Class Infrastructure Designed for Executive Excellence",
+    description: "Smart digital amphitheaters, modern finance trading room simulation, digital management library, and vibrant student societies.",
+    primaryCta: "Campus Visit & Enquiry",
+    secondaryCta: "Virtual Campus Tour",
+    stats: "Palm Beach Rd Belapur & Kalina University"
+  }
+];
+
+export const INITIAL_BLOGS: BlogPost[] = [
+  {
+    id: "blog-1",
+    title: "Navigating MBA Specializations in 2027: Why Data & FinTech Dominate Corporate Hiring",
+    slug: "navigating-mba-specializations-2027-fintech-data",
+    category: "Management Trends",
+    author: "Dr. Radhika Iyer",
+    authorRole: "Dean of Academics, BSS Foundation",
+    authorImage: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80",
+    date: "February 20, 2027",
+    readTime: "5 min read",
+    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=80",
+    summary: "As traditional banking converges with artificial intelligence and cloud architectures, recruiters are prioritizing candidates with dual competency in strategic business vision and quantitative modeling.",
+    content: `The modern corporate landscape has undergone a seismic shift. In 2027, enterprise management is no longer merely about administrative oversight; it is fundamentally about technological fluency, algorithmic decision-making, and rapid market adaptation.
+
+At BSS Foundation (School of Management), our curriculum integrates Python modeling, Bloomberg terminal simulations, and Lean Six Sigma directly into the core PGDBM + MBA framework. When global consultancies like Deloitte and Accenture arrive on campus for recruitments, they seek managers who can decipher a balance sheet while interpreting machine learning forecast pipelines.
+
+Key takeaways for prospective management students:
+1. Master quantitative tools early alongside traditional management fundamentals.
+2. Complete paid corporate internships in Mumbai's financial epicenters.
+3. Cultivate cross-disciplinary communication to lead engineering and marketing squads simultaneously.`,
+    tags: ["MBA 2027", "FinTech", "Corporate Hiring", "Data Analytics"],
+    featured: true
+  },
+  {
+    id: "blog-2",
+    title: "How Live Corporate Internships in Mumbai Accelerate Campus Placements to ₹22 LPA",
+    slug: "corporate-internships-mumbai-accelerate-placements",
+    category: "Career & Placements",
+    author: "Prof. Arvind Sen",
+    authorRole: "Head, Corporate Relations Cell",
+    authorImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+    date: "February 08, 2027",
+    readTime: "4 min read",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80",
+    summary: "A behind-the-scenes look at how mandatory 8-12 week summer corporate stints in Nariman Point, BKC, and Navi Mumbai convert directly into Pre-Placement Job Offers (PPOs).",
+    content: `Classroom simulations build strong foundational knowledge, but genuine corporate resilience is forged in live office settings. At BSS Foundation, every single student participates in mandatory summer and winter internship cycles with Fortune 500 conglomerates.
+
+Our recent graduate, Rohan Deshmukh, converted his 8-week summer stint with Accenture into a ₹14.5 LPA Pre-Placement Offer (PPO) months before final graduation. Corporate recruiters value candidates who have already operated inside multi-disciplinary enterprise environments, worked with real stakeholders, and delivered measurable business ROI.`,
+    tags: ["Placements", "Internships", "Mumbai Corporate", "Salaries"],
+    featured: false
+  },
+  {
+    id: "blog-3",
+    title: "Life at BSS Foundation: Balancing Case Studies, Aarohan Fest, and Startup Incubations",
+    slug: "life-at-bss-foundation-aarohan-fest-incubation",
+    category: "Campus Life",
+    author: "Tanvi Sharma",
+    authorRole: "President, Student Council",
+    authorImage: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=200&q=80",
+    date: "January 18, 2027",
+    readTime: "4 min read",
+    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=80",
+    summary: "From early morning Bloomberg trading battles to high-energy cultural rehearsals for Aarohan, explore the vibrant student life across our CBD Belapur and Kalina campuses.",
+    content: `Being a student at BSS Foundation is an electrifying journey. Between intense Harvard case study presentations and pitch deck preparations in the Incubation Cell, students lead sports clubs, finance societies, and creative marketing campaigns.
+
+The annual Aarohan fest brings over 40 colleges across Maharashtra to our Kalina and Belapur campuses for three days of management games, rock bands, and corporate fashion showcases. It teaches us logistics, sponsorship negotiation, and crisis management better than any theoretical lecture.`,
+    tags: ["Campus Life", "Student Council", "Aarohan", "Mumbai"],
+    featured: false
+  }
+];
+

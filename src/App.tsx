@@ -4,6 +4,8 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { DataProvider } from './context/DataContext';
+
 import { TopUtilityBar } from './components/TopUtilityBar';
 import { MainNavbar } from './components/MainNavbar';
 import { MarqueeTicker } from './components/MarqueeTicker';
@@ -37,9 +39,33 @@ import { PlacementsPage } from './pages/PlacementsPage';
 import { CampusPage } from './pages/CampusPage';
 import { ContactPage } from './pages/ContactPage';
 import { DepartmentsFacultyPage } from './pages/DepartmentsFacultyPage';
+import { BlogPage } from './pages/BlogPage';
+import { AdminPage } from './pages/AdminPage';
 
-export default function App() {
-  const [currentPage, setCurrentPage] = useState<string>('home');
+function parseRoute(): string {
+  if (typeof window === 'undefined') return 'home';
+  const path = window.location.pathname.toLowerCase();
+  const hash = window.location.hash.toLowerCase();
+
+  if (path === '/admin' || path.startsWith('/admin') || hash === '#/admin' || hash === '#admin') {
+    return 'admin';
+  }
+  if (path === '/blogs' || path === '/blog' || hash === '#/blogs') {
+    return 'blogs';
+  }
+  if (path === '/departments' || hash === '#/departments') return 'departments';
+  if (path === '/admissions' || hash === '#/admissions') return 'admissions';
+  if (path === '/placements' || hash === '#/placements') return 'placements';
+  if (path === '/about' || hash === '#/about') return 'about';
+  if (path === '/campus' || hash === '#/campus') return 'campus';
+  if (path === '/contact' || hash === '#/contact') return 'contact';
+  if (path === '/gallery' || hash === '#/gallery') return 'gallery';
+  if (path === '/programs' || hash === '#/programs') return 'programs';
+  return 'home';
+}
+
+function MainApp() {
+  const [currentPage, setCurrentPage] = useState<string>(parseRoute);
   const [selectedProgram, setSelectedProgram] = useState<string | undefined>(undefined);
 
   // Modals state
@@ -49,10 +75,26 @@ export default function App() {
   const [isBrochureModalOpen, setIsBrochureModalOpen] = useState(false);
   const [isVirtualTourModalOpen, setIsVirtualTourModalOpen] = useState(false);
 
-  // Scroll to top on page change
+  // Sync with browser back/forward history
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPage(parseRoute());
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Navigate function that also updates URL history
   const navigateTo = (page: string) => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    const targetUrl = page === 'home' ? '/' : `/${page}`;
+    if (window.location.pathname !== targetUrl) {
+      window.history.pushState({ page }, '', targetUrl);
+    }
   };
 
   const handleOpenApply = (programName?: string) => {
@@ -76,6 +118,15 @@ export default function App() {
     setSelectedProgram(programId);
     navigateTo('programs');
   };
+
+  // If on Admin page, render dedicated Admin Portal
+  if (currentPage === 'admin') {
+    return (
+      <div className="min-h-screen bg-slate-900 text-slate-100 font-sans selection:bg-[#c59b27] selection:text-[#0a1f44]">
+        <AdminPage onNavigateHome={() => navigateTo('home')} />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white text-slate-900 flex flex-col font-sans selection:bg-[#c59b27] selection:text-[#0a1f44]">
@@ -226,6 +277,13 @@ export default function App() {
           />
         )}
 
+        {currentPage === 'blogs' && (
+          <BlogPage
+            onOpenApply={() => handleOpenApply()}
+            onOpenEnquiry={handleOpenEnquiry}
+          />
+        )}
+
         {currentPage === 'programs' && (
           <div className="pt-6">
             <ProgramsSection
@@ -312,5 +370,13 @@ export default function App() {
         }}
       />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <DataProvider>
+      <MainApp />
+    </DataProvider>
   );
 }

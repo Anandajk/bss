@@ -5,7 +5,8 @@ import {
   GraduationCap, Award, Building2, MapPin, Play, Pause,
   ArrowRight, Users, MessageSquare
 } from 'lucide-react';
-import { TESTIMONIALS, Testimonial } from '../data/bssData';
+import { Testimonial } from '../data/bssData';
+import { useData } from '../context/DataContext';
 
 interface StudentTestimonialsSectionProps {
   onOpenApply: () => void;
@@ -16,6 +17,7 @@ export const StudentTestimonialsSection: React.FC<StudentTestimonialsSectionProp
   onOpenApply,
   onOpenEnquiry
 }) => {
+  const { testimonials } = useData();
   const [selectedFilter, setSelectedFilter] = useState<'all' | 'alumni' | 'current'>('all');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -24,9 +26,9 @@ export const StudentTestimonialsSection: React.FC<StudentTestimonialsSectionProp
 
   // Filter testimonials based on selected tab
   const filteredList: Testimonial[] = React.useMemo(() => {
-    if (selectedFilter === 'all') return TESTIMONIALS;
-    return TESTIMONIALS.filter(t => t.type === selectedFilter);
-  }, [selectedFilter]);
+    if (selectedFilter === 'all') return testimonials;
+    return testimonials.filter(t => t.type === selectedFilter);
+  }, [testimonials, selectedFilter]);
 
   // Ensure current index is within bounds when filter changes
   useEffect(() => {
@@ -92,7 +94,7 @@ export const StudentTestimonialsSection: React.FC<StudentTestimonialsSectionProp
                     : 'text-slate-600 hover:text-[#0a1f44]'
                 }`}
               >
-                All Voices ({TESTIMONIALS.length})
+                All Voices ({testimonials.length})
               </button>
               <button
                 onClick={() => setSelectedFilter('alumni')}
@@ -102,7 +104,7 @@ export const StudentTestimonialsSection: React.FC<StudentTestimonialsSectionProp
                     : 'text-slate-600 hover:text-[#0a1f44]'
                 }`}
               >
-                Alumni ({TESTIMONIALS.filter(t => t.type === 'alumni').length})
+                Alumni ({testimonials.filter(t => t.type === 'alumni').length})
               </button>
               <button
                 onClick={() => setSelectedFilter('current')}
@@ -112,7 +114,7 @@ export const StudentTestimonialsSection: React.FC<StudentTestimonialsSectionProp
                     : 'text-slate-600 hover:text-[#0a1f44]'
                 }`}
               >
-                Current Students ({TESTIMONIALS.filter(t => t.type === 'current').length})
+                Current Students ({testimonials.filter(t => t.type === 'current').length})
               </button>
             </div>
 

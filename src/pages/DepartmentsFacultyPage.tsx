@@ -5,7 +5,8 @@ import {
   Mail, ExternalLink, MapPin, Briefcase, ChevronRight,
   Filter, CheckCircle2, Phone, Calendar
 } from 'lucide-react';
-import { DEPARTMENTS, FACULTY_MEMBERS, Department, FacultyMember } from '../data/bssData';
+import { Department, FacultyMember } from '../data/bssData';
+import { useData } from '../context/DataContext';
 
 interface DepartmentsFacultyPageProps {
   onOpenApply: () => void;
@@ -17,13 +18,14 @@ export const DepartmentsFacultyPage: React.FC<DepartmentsFacultyPageProps> = ({
   onOpenApply,
   onOpenEnquiry
 }) => {
+  const { departments, faculty: facultyList } = useData();
   const [selectedDeptId, setSelectedDeptId] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedFacultyModal, setSelectedFacultyModal] = useState<FacultyMember | null>(null);
 
   // Filtered faculty list
   const filteredFaculty = useMemo(() => {
-    return FACULTY_MEMBERS.filter((faculty) => {
+    return facultyList.filter((faculty) => {
       const matchesDept = selectedDeptId === 'all' || faculty.departmentId === selectedDeptId;
       const q = searchQuery.toLowerCase().trim();
       const matchesSearch =
@@ -36,13 +38,13 @@ export const DepartmentsFacultyPage: React.FC<DepartmentsFacultyPageProps> = ({
 
       return matchesDept && matchesSearch;
     });
-  }, [selectedDeptId, searchQuery]);
+  }, [facultyList, selectedDeptId, searchQuery]);
 
   // Active department details when a specific department is selected
   const activeDepartment = useMemo(() => {
     if (selectedDeptId === 'all') return null;
-    return DEPARTMENTS.find((d) => d.id === selectedDeptId) || null;
-  }, [selectedDeptId]);
+    return departments.find((d) => d.id === selectedDeptId) || null;
+  }, [departments, selectedDeptId]);
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800">
@@ -139,10 +141,10 @@ export const DepartmentsFacultyPage: React.FC<DepartmentsFacultyPageProps> = ({
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
-              All Faculty ({FACULTY_MEMBERS.length})
+              All Faculty ({facultyList.length})
             </button>
 
-            {DEPARTMENTS.map((dept) => (
+            {departments.map((dept) => (
               <button
                 key={dept.id}
                 onClick={() => setSelectedDeptId(dept.id)}

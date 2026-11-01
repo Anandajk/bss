@@ -5,7 +5,8 @@ import {
   User, CheckCircle2, Download, Tag, Filter,
   Building2, AlertCircle, FileText, ChevronRight
 } from 'lucide-react';
-import { UPCOMING_EVENTS, ANNOUNCEMENTS, EventItem, AnnouncementItem } from '../data/bssData';
+import { EventItem, AnnouncementItem } from '../data/bssData';
+import { useData } from '../context/DataContext';
 
 interface NewsEventsProps {
   onOpenApply: () => void;
@@ -18,6 +19,7 @@ export const NewsEventsSection: React.FC<NewsEventsProps> = ({
   onOpenEnquiry,
   onNavigateToDepartments
 }) => {
+  const { events, announcements } = useData();
   const [activeTab, setActiveTab] = useState<'events' | 'announcements'>('events');
   const [selectedOrganizingTag, setSelectedOrganizingTag] = useState<string>('All');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
@@ -25,27 +27,27 @@ export const NewsEventsSection: React.FC<NewsEventsProps> = ({
   // Extract all unique organizing bodies for the tag filter options
   const organizingBodies = useMemo(() => {
     const list = new Set<string>();
-    UPCOMING_EVENTS.forEach((e) => list.add(e.organizingBody));
-    ANNOUNCEMENTS.forEach((a) => list.add(a.organizingBody));
+    events.forEach((e) => list.add(e.organizingBody));
+    announcements.forEach((a) => list.add(a.organizingBody));
     return ['All', ...Array.from(list)];
-  }, []);
+  }, [events, announcements]);
 
   // Filtered Events
   const filteredEvents = useMemo(() => {
-    return UPCOMING_EVENTS.filter((e) => {
+    return events.filter((e) => {
       const matchTag = selectedOrganizingTag === 'All' || e.organizingBody === selectedOrganizingTag;
       const matchCat = selectedCategory === 'All' || e.category === selectedCategory;
       return matchTag && matchCat;
     });
-  }, [selectedOrganizingTag, selectedCategory]);
+  }, [events, selectedOrganizingTag, selectedCategory]);
 
   // Filtered Announcements
   const filteredAnnouncements = useMemo(() => {
-    return ANNOUNCEMENTS.filter((a) => {
+    return announcements.filter((a) => {
       const matchTag = selectedOrganizingTag === 'All' || a.organizingBody === selectedOrganizingTag;
       return matchTag;
     });
-  }, [selectedOrganizingTag]);
+  }, [announcements, selectedOrganizingTag]);
 
   const handleDownloadCircular = (ann: AnnouncementItem) => {
     // Generate text/circular file download
@@ -111,7 +113,7 @@ Website: https://bssfoundation.net | Email: info@bssfoundation.net
               }`}
             >
               <Calendar className="w-3.5 h-3.5" />
-              <span>Upcoming Events ({UPCOMING_EVENTS.length})</span>
+              <span>Upcoming Events ({events.length})</span>
             </button>
             <button
               onClick={() => setActiveTab('announcements')}
@@ -122,7 +124,7 @@ Website: https://bssfoundation.net | Email: info@bssfoundation.net
               }`}
             >
               <FileText className="w-3.5 h-3.5" />
-              <span>Announcements & Circulars ({ANNOUNCEMENTS.length})</span>
+              <span>Announcements & Circulars ({announcements.length})</span>
             </button>
           </div>
         </div>

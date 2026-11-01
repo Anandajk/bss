@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail, MapPin, Award, ExternalLink, HelpCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Award, HelpCircle, Lock, BookOpen } from 'lucide-react';
 import { INSTITUTION_INFO } from '../data/bssData';
 
 interface TopUtilityBarProps {
@@ -42,13 +42,13 @@ export const TopUtilityBar: React.FC<TopUtilityBarProps> = ({
           </div>
 
           {/* Right: Quick Portals & Shortcuts */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-3.5">
             <button
-              onClick={() => onNavigate('campuses')}
+              onClick={() => onNavigate('blogs')}
               className="flex items-center space-x-1 text-slate-300 hover:text-amber-300 transition-colors cursor-pointer"
             >
-              <MapPin className="w-3 h-3 text-amber-400" />
-              <span>Campuses: Belapur & Kalina</span>
+              <BookOpen className="w-3 h-3 text-[#c59b27]" />
+              <span>Gazettes & Blog</span>
             </button>
 
             <span className="text-slate-600">|</span>
@@ -57,7 +57,7 @@ export const TopUtilityBar: React.FC<TopUtilityBarProps> = ({
               onClick={onOpenVirtualTour}
               className="text-slate-300 hover:text-amber-300 transition-colors cursor-pointer font-medium"
             >
-              360° Virtual Tour
+              360° Tour
             </button>
 
             <span className="text-slate-600">|</span>
@@ -67,6 +67,17 @@ export const TopUtilityBar: React.FC<TopUtilityBarProps> = ({
               className="text-slate-300 hover:text-amber-300 transition-colors cursor-pointer"
             >
               Eligibility & Fees
+            </button>
+
+            <span className="text-slate-600">|</span>
+
+            <button
+              onClick={() => onNavigate('admin')}
+              className="flex items-center space-x-1 text-amber-300 hover:text-amber-200 transition-colors cursor-pointer font-medium bg-white/5 px-2 py-0.5 rounded border border-amber-400/30"
+              title="CMS Admin Dashboard (/admin)"
+            >
+              <Lock className="w-3 h-3 text-amber-400" />
+              <span>Admin Portal</span>
             </button>
 
             <span className="text-slate-600">|</span>
