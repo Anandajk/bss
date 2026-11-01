@@ -17,6 +17,7 @@ import { PlacementsSection } from './components/PlacementsSection';
 import { StudentTestimonialsSection } from './components/StudentTestimonialsSection';
 import { CampusLifeSection } from './components/CampusLifeSection';
 import { NewsEventsSection } from './components/NewsEventsSection';
+import { HomeFAQSection } from './components/HomeFAQSection';
 import { GallerySection } from './components/GallerySection';
 import { CampusesSection } from './components/CampusesSection';
 import { FloatingActions } from './components/FloatingActions';
@@ -183,6 +184,16 @@ export default function App() {
                 onOpenApply={() => handleOpenApply()}
                 onOpenEnquiry={handleOpenEnquiry}
                 onNavigateToDepartments={() => navigateTo('departments')}
+              />
+            </ScrollReveal>
+
+            {/* Prospective Students Frequently Asked Questions (Admissions, Fees, Placements) */}
+            <ScrollReveal direction="up" distance={40} delay={0.1} amount={0.1}>
+              <HomeFAQSection
+                onOpenApply={() => handleOpenApply()}
+                onOpenBrochure={handleOpenBrochure}
+                onOpenEnquiry={handleOpenEnquiry}
+                onNavigateToAdmissions={() => navigateTo('admissions')}
               />
             </ScrollReveal>
 
