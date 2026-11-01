@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import {
   Briefcase, TrendingUp, Award, Building, CheckCircle2,
-  Download, ArrowRight, ChevronLeft, ChevronRight
+  Download, ArrowRight, ChevronLeft, ChevronRight, ExternalLink, MessageSquare
 } from 'lucide-react';
 import { RECRUITERS, TESTIMONIALS, Recruiter } from '../data/bssData';
+import { RecruiterLogo } from './RecruiterLogo';
 
 interface PlacementsSectionProps {
   onOpenApply: () => void;
@@ -137,15 +138,16 @@ export const PlacementsSection: React.FC<PlacementsSectionProps> = ({
               <motion.div
                 key={idx}
                 whileHover={{ scale: 1.03 }}
-                className="bg-slate-50 hover:bg-amber-50/50 rounded-lg p-4 border border-slate-200 hover:border-amber-400 transition-all text-center flex flex-col items-center justify-center min-h-[90px] shadow-sm group"
+                className="bg-white hover:bg-amber-50/40 rounded-xl p-4 border border-slate-200 hover:border-[#c59b27] transition-all text-center flex flex-col items-center justify-center min-h-[96px] shadow-xs hover:shadow-md group"
               >
-                <span className="font-crest font-extrabold text-base sm:text-lg text-[#0a1f44] tracking-wider group-hover:text-[#c59b27] transition-colors">
-                  {rec.logoText}
-                </span>
-                <span className="text-[10px] text-slate-500 mt-1 font-medium">
+                {/* Official Corporate Logo */}
+                <div className="h-8 flex items-center justify-center w-full">
+                  <RecruiterLogo name={rec.name} className="max-w-[140px]" />
+                </div>
+                <span className="text-[10px] text-slate-500 mt-2 font-medium">
                   {rec.category}
                 </span>
-                <span className="text-[9px] text-amber-700 font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="text-[9px] text-[#0a1f44] font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
                   {rec.highestRole}
                 </span>
               </motion.div>
@@ -225,13 +227,30 @@ export const PlacementsSection: React.FC<PlacementsSectionProps> = ({
                     "{current.quote}"
                   </p>
 
-                  <div className="pt-4 border-t border-white/10 flex items-center space-x-3 text-xs text-slate-300">
-                    <span className="font-bold text-white">Placed at:</span>
-                    <span className="bg-white/10 px-2.5 py-1 rounded font-crest text-amber-300 text-sm">
-                      {current.company}
-                    </span>
-                    <span className="text-slate-400">•</span>
-                    <span className="text-slate-200 font-semibold">{current.role}</span>
+                  <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-300">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="font-bold text-white">Placed at:</span>
+                      <span className="bg-white/10 px-2.5 py-1 rounded font-crest text-amber-300 text-sm">
+                        {current.company}
+                      </span>
+                      <span className="text-slate-400">•</span>
+                      <span className="text-slate-200 font-semibold">{current.role}</span>
+                    </div>
+
+                    {/* LinkedIn Chat & Profile Redirect Symbol */}
+                    <a
+                      href={current.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={`Chat with ${current.name} on LinkedIn`}
+                      className="inline-flex items-center space-x-1.5 bg-[#0077b5] hover:bg-[#005f93] text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-xs transition-transform hover:scale-105 cursor-pointer"
+                    >
+                      <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                      </svg>
+                      <MessageSquare className="w-3 h-3 text-amber-300 ml-0.5" />
+                      <span>Chat on LinkedIn</span>
+                    </a>
                   </div>
                 </div>
               </div>

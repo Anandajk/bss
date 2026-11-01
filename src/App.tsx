@@ -14,6 +14,7 @@ import { ProgramsSection } from './components/ProgramsSection';
 import { WhyBSSSection } from './components/WhyBSSSection';
 import { DirectorDeskSection } from './components/DirectorDeskSection';
 import { PlacementsSection } from './components/PlacementsSection';
+import { StudentTestimonialsSection } from './components/StudentTestimonialsSection';
 import { CampusLifeSection } from './components/CampusLifeSection';
 import { NewsEventsSection } from './components/NewsEventsSection';
 import { GallerySection } from './components/GallerySection';
@@ -34,6 +35,7 @@ import { AdmissionsPage } from './pages/AdmissionsPage';
 import { PlacementsPage } from './pages/PlacementsPage';
 import { CampusPage } from './pages/CampusPage';
 import { ContactPage } from './pages/ContactPage';
+import { DepartmentsFacultyPage } from './pages/DepartmentsFacultyPage';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<string>('home');
@@ -159,6 +161,14 @@ export default function App() {
               />
             </ScrollReveal>
 
+            {/* Student & Alumni Testimonials Showcase (Rotating Quotes, Photos & Trust Badges) */}
+            <ScrollReveal direction="up" distance={40} delay={0.1} amount={0.1}>
+              <StudentTestimonialsSection
+                onOpenApply={() => handleOpenApply()}
+                onOpenEnquiry={handleOpenEnquiry}
+              />
+            </ScrollReveal>
+
             {/* Campus Life & Infrastructure Showcase */}
             <ScrollReveal direction="up" distance={40} delay={0.1} amount={0.1}>
               <CampusLifeSection
@@ -172,6 +182,7 @@ export default function App() {
               <NewsEventsSection
                 onOpenApply={() => handleOpenApply()}
                 onOpenEnquiry={handleOpenEnquiry}
+                onNavigateToDepartments={() => navigateTo('departments')}
               />
             </ScrollReveal>
 
@@ -193,6 +204,14 @@ export default function App() {
           <AboutPage
             onOpenApply={() => handleOpenApply()}
             onOpenBrochure={handleOpenBrochure}
+          />
+        )}
+
+        {currentPage === 'departments' && (
+          <DepartmentsFacultyPage
+            onOpenApply={() => handleOpenApply()}
+            onOpenEnquiry={handleOpenEnquiry}
+            onSelectProgram={handleSelectProgram}
           />
         )}
 

@@ -86,7 +86,7 @@ export const AdmissionsPage: React.FC<AdmissionsPageProps> = ({ onOpenApply, onO
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
             <span className="bg-[#c59b27] text-[#0a1f44] font-crest text-xs font-bold px-3 py-1 rounded uppercase tracking-wider mb-4 inline-block">
-              Admissions Open 2025 - 2026
+              Admissions Open 2027 - 2028
             </span>
             <h1 className="text-3xl sm:text-5xl font-heading font-extrabold text-white mb-4 leading-tight">
               Admission Procedure & Guidelines
@@ -155,7 +155,7 @@ export const AdmissionsPage: React.FC<AdmissionsPageProps> = ({ onOpenApply, onO
         {/* Eligibility & Course Matrix */}
         <div className="bg-white rounded-2xl border border-slate-200 shadow-md p-6 sm:p-8">
           <h3 className="font-heading font-bold text-2xl text-[#0a1f44] mb-6">
-            Program Eligibility & Fee Structure (2025-26)
+            Program Eligibility & Fee Structure (2027-28)
           </h3>
 
           <div className="overflow-x-auto">

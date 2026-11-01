@@ -16,9 +16,9 @@ export const QuickAccessCards: React.FC<QuickAccessCardsProps> = ({
   const cards = [
     {
       id: "admissions",
-      title: "Admissions 2025-26",
+      title: "Admissions 2027-28",
       subtitle: "Merit Assessment & Spot Offers",
-      description: "Direct admissions open for PGDBM+MBA, BBA, BCA (Hons) and B.Sc Data Science & AI. Up to 30% scholarship.",
+      description: "Direct admissions open for PGDBM+MBA, BBA, BCA (Hons) and B.Sc Data Science & AI. Up to 40% scholarship.",
       icon: GraduationCap,
       actionText: "Apply Online Now",
       onClick: onOpenApply

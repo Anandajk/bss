@@ -8,11 +8,11 @@ interface MarqueeTickerProps {
 
 export const MarqueeTicker: React.FC<MarqueeTickerProps> = ({ onOpenApply, onOpenEnquiry }) => {
   const notices = [
-    "🎓 ADMISSIONS OPEN 2025-26: PGDBM + MBA (Triple Specialization), BBA, BCA (Hons), B.Sc Data Science & AI",
+    "🎓 ADMISSIONS OPEN 2027-28: PGDBM + MBA (Triple Specialization), BBA, BCA (Hons), B.Sc Data Science & AI",
     "💼 PLACEMENT RECORD: Highest Package ₹22 LPA | 150+ Top Corporate Recruiters (Deloitte, Accenture, TCS, HDFC, ICICI)",
-    "🏆 MERIT SCHOLARSHIPS: Up to 30% Tuition Fee waiver for academic high-achievers & sports national rankers",
+    "🏆 MERIT SCHOLARSHIPS: Up to 40% Tuition Fee waiver for academic high-achievers & sports rankers",
     "📍 DUAL CAMPUSES: CBD Belapur, Palm Beach Road, Navi Mumbai & University of Mumbai Kalina Campus",
-    "⚡ SPOT INTERVIEWS & COUNSELLING: Call Admission Helpline +91 7400408514 / +91 7304109359"
+    "⚡ SPOT INTERVIEWS & COUNSELLING: Call Admissions 2027 Helpline +91 7400408514 / +91 7304109359"
   ];
 
   return (

@@ -196,7 +196,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenApply, onOpenBrochur
                 onClick={onOpenApply}
                 className="bg-[#c59b27] hover:bg-[#b0881e] text-[#0a1f44] font-bold px-5 py-2.5 rounded-lg text-xs sm:text-sm shadow-md transition-all cursor-pointer"
               >
-                Apply for 2025 Admissions
+                Apply for 2027 Admissions
               </button>
               <button
                 onClick={onOpenBrochure}

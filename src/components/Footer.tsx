@@ -128,6 +128,14 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <button
+                  onClick={() => onNavigate('departments')}
+                  className="hover:text-amber-300 transition-colors cursor-pointer text-left text-amber-300 font-semibold"
+                >
+                  Departments & Faculty Directory
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => onNavigate('about')}
                   className="hover:text-amber-300 transition-colors cursor-pointer text-left"
                 >
@@ -137,7 +145,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={onOpenVirtualTour}
-                  className="hover:text-amber-300 transition-colors cursor-pointer text-left font-semibold text-amber-300"
+                  className="hover:text-amber-300 transition-colors cursor-pointer text-left font-semibold text-slate-300"
                 >
                   360° Virtual Campus Tour
                 </button>
@@ -221,7 +229,7 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={onOpenApply}
                   className="text-amber-300 font-bold hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  Online Application Form 2025
+                  Online Application Form 2027
                 </button>
               </li>
               <li>
@@ -262,6 +270,19 @@ export const Footer: React.FC<FooterProps> = ({
                   className="hover:text-amber-300 transition-colors cursor-pointer text-left"
                 >
                   150+ Corporate Recruiters
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => {
+                    onNavigate('home');
+                    setTimeout(() => {
+                      document.getElementById('student-testimonials')?.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }}
+                  className="hover:text-amber-300 transition-colors cursor-pointer text-left"
+                >
+                  Student & Alumni Testimonials
                 </button>
               </li>
             </ul>

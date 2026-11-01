@@ -7,7 +7,7 @@ interface CrestProps {
 
 export const InstitutionalCrest: React.FC<CrestProps> = ({ light = false, className = "" }) => {
   return (
-    <div className={`flex items-center space-x-3 select-none ${className}`}>
+    <div className={`flex items-center space-x-2 sm:space-x-2.5 select-none flex-shrink-0 ${className}`}>
       {/* Official Uploaded BSS Foundation Logo */}
       <div className={`flex items-center justify-center flex-shrink-0 ${light ? 'bg-white p-1 rounded-lg shadow-sm' : ''}`}>
         <img

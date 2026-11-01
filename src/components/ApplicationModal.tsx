@@ -87,7 +87,7 @@ export const ApplicationModal: React.FC<ApplicationModalProps> = ({
                 Online Admission Application Portal
               </h3>
               <p className="text-amber-300 text-xs">
-                Academic Session 2025 – 2026 • BSS Foundation
+                Academic Session 2027 – 2028 • BSS Foundation
               </p>
             </div>
           </div>

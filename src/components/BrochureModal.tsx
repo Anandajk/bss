@@ -26,7 +26,7 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({ isOpen, onClose })
     // Generate text/pdf simulation blob
     const content = `========================================================
 BSS FOUNDATION - SCHOOL OF MANAGEMENT (MUMBAI)
-PROSPECTUS & ACADEMIC INFORMATION BULLETIN (2025-2026)
+PROSPECTUS & ACADEMIC INFORMATION BULLETIN (2027-2028)
 "Beyond Education"
 ========================================================
 
@@ -38,7 +38,7 @@ Affiliated Programs & Collaborations:
 
 KEY STATISTICAL HIGHLIGHTS:
 - Highest Placement Package: INR 22 LPA
-- Average Package (2024): INR 9.11 LPA
+- Average Package: INR 9.11 LPA
 - 150+ Top Corporate Recruiters (Deloitte, Accenture, TCS, Wipro, ICICI, HDFC, Airbus)
 - 100% Placement Assistance
 
@@ -63,7 +63,7 @@ Official Website: https://bssfoundation.net/
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `BSS_Foundation_Prospectus_2025_2026.txt`;
+    link.download = `BSS_Foundation_Prospectus_2027_2028.txt`;
     link.click();
     URL.revokeObjectURL(url);
   };
@@ -86,7 +86,7 @@ Official Website: https://bssfoundation.net/
                 Download Official Prospectus
               </h3>
               <p className="text-amber-300 text-xs">
-                Academic Bulletin & Placements Guide (2025–26)
+                Academic Bulletin & Placements Guide (2027–28)
               </p>
             </div>
           </div>
@@ -163,7 +163,7 @@ Official Website: https://bssfoundation.net/
                       className="text-[#0a1f44]"
                     />
                     <FileText className="w-4 h-4 text-[#c59b27]" />
-                    <span>Comprehensive Master Prospectus 2025-26 (All Degrees)</span>
+                    <span>Comprehensive Master Prospectus 2027-28 (All Degrees)</span>
                   </label>
 
                   <label className="flex items-center space-x-2 text-xs text-slate-700 p-2.5 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50">
@@ -202,7 +202,7 @@ Official Website: https://bssfoundation.net/
               </p>
 
               <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-6 text-left text-xs space-y-1.5 text-slate-700">
-                <p><strong>Document:</strong> BSS Foundation Information Bulletin 2025-26</p>
+                <p><strong>Document:</strong> BSS Foundation Information Bulletin 2027-28</p>
                 <p><strong>Format:</strong> Digital Verified Edition (.txt / .pdf preview)</p>
                 <p><strong>File Size:</strong> 4.8 MB</p>
               </div>

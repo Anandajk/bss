@@ -17,7 +17,7 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({
 }) => {
   const handleWhatsApp = () => {
     const phone = "917400408514";
-    const text = encodeURIComponent("Hello BSS Foundation Admissions Team, I would like to inquire about courses and admission procedure 2025-26.");
+    const text = encodeURIComponent("Hello BSS Foundation Admissions Team, I would like to inquire about courses and admission procedure 2027-28.");
     window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${text}`, '_blank');
   };
 
@@ -39,11 +39,11 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({
       <button
         onClick={onOpenApply}
         className="group flex items-center bg-[#c59b27] hover:bg-[#b0881e] text-[#0a1f44] font-bold text-xs py-2.5 px-3 rounded-l-lg shadow-xl border-l-2 border-y border-[#0a1f44] transition-all transform hover:-translate-x-2 cursor-pointer"
-        title="Apply Online for 2025"
+        title="Apply Online for 2027"
       >
         <GraduationCap className="w-4 h-4 text-[#0a1f44] mr-2 flex-shrink-0" />
         <span className="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300">
-          Apply Online 2025
+          Apply Online 2027
         </span>
       </button>
 

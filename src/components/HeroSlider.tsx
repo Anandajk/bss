@@ -22,11 +22,11 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
     {
       id: 1,
       image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1800&q=85",
-      badge: "Flagship Admissions 2025 - 2026",
+      badge: "Flagship Admissions 2027 - 2028",
       tagline: "Beyond Education • School of Management",
       title: "Shaping Visionary Corporate Leaders & Global Entrepreneurs",
       description: "Join India's forward-thinking management institution in Mumbai & Navi Mumbai. Premier industry-aligned PGDBM+MBA, BBA, BCA, and B.Sc Data Science & AI programs.",
-      primaryCta: "Apply Online for 2025",
+      primaryCta: "Apply Online for 2027",
       secondaryCta: "Explore Programs",
       stats: "₹22 LPA Highest CTC • 150+ Recruiters"
     },
